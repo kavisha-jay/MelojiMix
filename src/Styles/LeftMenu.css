@@ -1,0 +1,211 @@
+.leftmenu {
+  width: 280px;
+  height: 100%;
+  min-height: 100vh;
+  background: rgba(34, 34, 34, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px 15px;
+  overflow: hidden;
+  transition: alt 0.3 ease;
+}
+.leftmenu .logoContainer {
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftmenu .logoContainer i {
+  font-size: 30px;
+}
+
+.leftmenu .logoContainer i:nth-of-type(2) {
+  font-size: 20px;
+}
+.leftmenu .logoContainer h2 {
+  font-size: 20px;
+}
+.searchbox {
+  width: 100%;
+  height: 45px;
+  background: rebeccapurple;
+  position: relative;
+  margin-top: 20px;
+  color: #848484;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0.4);
+}
+
+.searchbox input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: rgba(0, 0, 0.5);
+  padding-left: 45px;
+  color: #f1f1f1;
+  font-size: 14px;
+  font-weight: bold;
+}
+.searchbox .searchIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #848484;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.playListContainer {
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.playListContainer .nameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #848484;
+  margin-bottom: 10px;
+}
+
+.playListContainer .nameContainer p {
+  font-size: 12px;
+  color: #848484;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.playListContainer .nameContainer i {
+  cursor: pointer;
+  color: #f1f1f1;
+}
+
+.playListContainer .playListScroll {
+  height: 28%;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+.playListContainer .playListScroll .platlist {
+  display: flex;
+  align-items: center;
+  color: #848484;
+  margin: 10px 0;
+}
+
+.playListContainer .playListScroll .platlist:hover {
+  color: #f1f1f1;
+  transition: 0.3;
+}
+.playListContainer .playListScroll .platlist i {
+  font-size: 18px;
+}
+.playListContainer .playListScroll .platlist .list {
+  margin-right: 15px;
+}
+.playListContainer .playListScroll .platlist .trash {
+  margin-left: auto;
+}
+.playListContainer .playListScroll .platlist p {
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline;
+}
+.trackList {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+.trackList .top {
+  display: flex;
+  align-items: center;
+}
+.trackList .top img {
+  width: 50px !important;
+}
+
+.trackList .top .trackName {
+  margin-left: 10px;
+  color: #f1f1f1;
+  font-size: 14px;
+}
+.trackList .top .trackName .trackSpan {
+  display: block;
+  font-size: 12px;
+  color: #848484;
+}
+
+.trackList .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  color: #848484;
+}
+.trackList .bottom i {
+  font-size: 18px;
+}
+.trackList .bottom i:hover {
+  color: #f1f1f1;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.trackList .bottom input {
+  position: relative;
+  height: 5px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  appearance: none;
+}
+.trackList .bottom input::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background: #49e12e;
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 2;
+  transition: width 250ms linear;
+}
+
+.trackList .bottom input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 20px;
+  border-radius: 10px;
+  background: #f1f1f1;
+  border: 2px solid #000;
+  cursor: pointer;
+  position: relative;
+  margin: -2px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+  transition: all 250ms linear;
+}
+.trackList .bottom input::-moz-progress-bar {
+  background: #49e12e;
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 2;
+  transition: width 250ms linear;
+}
+.trackList .bottom input::-moz-range-thumb {
+  background: #49e12e;
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 2;
+  transition: width 250ms linear;
+}
