@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { BsFillHouseAddFill, BsJournalAlbum } from "react-icons/bs";
 import { FaBroadcastTower, FaMicrophoneAlt, FaPodcast } from "react-icons/fa";
 import { BiPulse } from "react-icons/bi";
-import "../Styles/Menu.css";
 
 function Menu({ title }) {
   const MenuList = [
