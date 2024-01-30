@@ -5,7 +5,7 @@ import { BiPulse } from "react-icons/bi";
 
 
 const MenuList = [
-        { id: 1, icon: <BsFillHouseAddFill />, name: "Home" },
+        { id: 1, icon: <BsFillHouseAddFill />, name: "Home"},
         { id: 2, icon: <BiPulse />, name: "Discover" },
         { id: 3, icon: <FaBroadcastTower />, name: "Radio" },
         { id: 4, icon: <FaMicrophoneAlt />, name: "Artist" },
