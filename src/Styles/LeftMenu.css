@@ -1,8 +1,7 @@
 .leftmenu {
   z-index: 1;
   width: 280px;
-  height: 100%;
-  min-height: 100vh;
+  height: 78vh;
   background: rgba(34, 34, 34, 0.6);
   backdrop-filter: blur(10px);
   padding: 20px 15px;
@@ -27,7 +26,6 @@
   font-size: 20px;
   margin-left: 20px;
 }
-
 
 .playListContainer {
   cursor: pointer;
@@ -132,7 +130,7 @@
   left: -15px;
   width: 0px;
   height: 100%;
-  background: #49e12e;
+  background: #dc018c;
   border-radius: 5px;
 }
 .MenuContainer ul li:hover::before,
@@ -147,11 +145,14 @@
   transition: 0.3s;
 }
 .trackList {
+  height: 20vh;
+  width: 250px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .trackList .top {
   display: flex;
+
   align-items: center;
 }
 .trackList .top img {
@@ -198,7 +199,7 @@
   content: "";
   top: 0;
   left: 0;
-  background: #49e12e;
+  background: #dc018c;
   width: 50%;
   height: 100%;
   border-radius: 10px;
@@ -221,7 +222,7 @@
   transition: all 250ms linear;
 }
 .trackList .bottom input::-moz-progress-bar {
-  background: #49e12e;
+  background: #f045b1;
   width: 50%;
   height: 100%;
   border-radius: 10px;
@@ -229,7 +230,7 @@
   transition: width 250ms linear;
 }
 .trackList .bottom input::-moz-range-thumb {
-  background: #49e12e;
+  background: #f045b1;
   width: 50%;
   height: 100%;
   border-radius: 10px;
@@ -262,4 +263,7 @@
   .leftMenu .logoContainer h2 {
     margin-left: 20px;
   }
+}
+.tracklist {
+  margin-top: 3.7rem;
 }

@@ -29,4 +29,4 @@ function TrackList() {
   );
 }
 
-export { TrackList };
+export default TrackList;

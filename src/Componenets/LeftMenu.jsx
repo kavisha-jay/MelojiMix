@@ -1,18 +1,18 @@
 import React from "react";
 import "../Styles/LeftMenu.css";
 import { FaSpotify, FaEllipsisH } from "react-icons/fa";
-
+import { FcMusic } from "react-icons/fc";
 import { Menu } from "./Menu";
 import { MenuList } from "./MenuList";
 import { MenuPlaylist } from "./MenuPlaylist";
-import { TrackList } from "./TrackList";
+
 
 function LeftMenu() {
   return (
     <div className="leftmenu">
       <div className="logoContainer">
         <i>
-          <FaSpotify />
+          <FcMusic />
         </i>
         <h2>MelojiMix</h2>
         <i>
@@ -20,11 +20,11 @@ function LeftMenu() {
         </i>
       </div>
       
-     <Menu title={'Menu'} menuObject={MenuList}/>
+     <Menu menuObject={MenuList}/>
 
     <MenuPlaylist/>
-
-    {/* <TrackList/> */}
+    
+    
     </div>
   );
 }

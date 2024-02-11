@@ -1,0 +1,16 @@
+.FooterContainer {
+  z-index: 1;
+  width: 100%;
+  height: 22vh;
+  background: rgba(34, 34, 34, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 20px 15px;
+  overflow: hidden;
+  transition: alt 0.3 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: row;
+}
+.PlayerContainer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}

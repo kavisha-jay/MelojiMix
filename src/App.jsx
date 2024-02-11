@@ -19,8 +19,10 @@ const Dashboard = () => {
       <LeftMenu />
       <Outlet/>
       <RightMenu/>
+      
       </div>
       <Footer/>
+      
       
     </div>
   )

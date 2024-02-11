@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Banner } from '../Componenets/Banner';
+import '../Styles/MainContainer.css';
 
 function Home() {
   return (
-    <div>Home</div>
+    <div className='mainContainer'>
+    <Banner/>
+  </div>
   )
 }
 
