@@ -6,6 +6,7 @@ import img from "../img/track.png";
 import pro from "../img/profile.jpg";
 import art from "../img/melo.png";
 import ed from "../img/ed.jpg";
+import Emotion from "../Pages/Emotion";
 
 function MainContainer() {
   return (

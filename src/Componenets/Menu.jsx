@@ -10,7 +10,7 @@ import { BiPulse, BiSearchAlt } from "react-icons/bi";
 import Home from "../Pages/Home.jsx";
 import { MainContainer } from "./MainContainer.jsx";
 
-function Menu({ title }) {
+function Menu() {
   const MenuList = [
     {
       id: 1,
@@ -35,7 +35,7 @@ function Menu({ title }) {
 
   useEffect(() => {
     const allLi = document
-      .querySelector(".MenuContainer")
+      .querySelector(".MenuContainer ul")
       .querySelectorAll("li");
 
     function changeMenuActive() {
@@ -48,15 +48,16 @@ function Menu({ title }) {
   return (
     <div className="MenuContainer">
       <ul>
-        {MenuList.map((menu) => (
-          <li key={menu.id}>
-            {" "}
-            <a href={menu.link}>
-              <i>{menu.icon}</i>
-              <span style={{ fontSize: "24px" }}>{menu.name}</span>
-            </a>
-          </li>
-        ))}
+        {MenuList &&
+          MenuList.map((menu) => (
+            <li key={menu.id}>
+              {" "}
+              <a href={menu.link}>
+                <i>{menu.icon}</i>
+                <span style={{ fontSize: "24px" }}>{menu.name}</span>
+              </a>
+            </li>
+          ))}
       </ul>
     </div>
   );

@@ -1,6 +1,5 @@
 import "./App.css";
 import { LeftMenu } from "./Componenets/LeftMenu";
-import LoginSignup from "./Componenets/LoginSignup/LoginSignup";
 import { MainContainer } from "./Componenets/MainContainer";
 import { RightMenu } from "./Componenets/RightMenu";
 import {
@@ -10,12 +9,10 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import Home from "./Pages/Home";
 import Emotion from "./Pages/Emotion";
 import Search from "./Pages/Search";
 import ErrorPage from "./Pages/ErrorPage";
 import Footer from "./Componenets/Footer";
-import { Banner } from "./Componenets/Banner";
 import Modal from "./Componenets/modal/Modal";
 
 const Dashboard = () => {
@@ -63,14 +60,12 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-  
       <div className="background">
         <div className="App">
           <RouterProvider router={router} />
         </div>
       </div>
       <Modal />
-    
     </>
   );
 }
