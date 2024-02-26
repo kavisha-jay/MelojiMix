@@ -1,0 +1,19 @@
+{
+  "name": "melo",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "kaveesha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
