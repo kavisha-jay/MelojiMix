@@ -22,7 +22,7 @@ export const genres = [
 
 export const links = [
   { name: 'Home', to: '/', icon: HiOutlineHome },
-  { name: 'Search', to: '/around-you', icon: FiSearch },
+  { name: 'Search', to: '/search/:searchTerm', icon: FiSearch },
   { name: 'Emotion', to: '/top-artists', icon: FaSmile},
   // { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },
 ];

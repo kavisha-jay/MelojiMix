@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-
-import { Sidebar, MusicPlayer, TopPlay } from './components';
+import MusicPlayer from './components/MusicPlayer';
+import Sidebar from './components/Sidebar';
+import TopPlay from './components/TopPlay';
 import  Searchbar  from './components/Searchbar';
 import Search from './pages/Search';
 import ArtistDetails from './pages/ArtistDetails';
@@ -20,11 +21,11 @@ const App = () => {
     <div className="w-full relative overflow-hidden flex z-10 flex-grow h-screen ">
       <Sidebar />
       <div className="background">
-        
+      
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse bg-[rgba(34,34,34,0.6)]  backdrop-blur-3xl">
           <div className="flex-1 h-fit pb-40 ">
           
-         
+          <Searchbar/>
 
             <Routes>
               <Route path="/" element={ <Discover />} />
