@@ -30,6 +30,15 @@ app.get('/product/:id', async(req, res) =>{
         res.status(500).json({message: error.message})
     }
 })
+// app.get('/product/:id', async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const product = await Product.findById(id, 'name'); // Only select the 'name' field
+//         res.status(200).json({ name: product.name }); // Send only the 'name' attribute in the response
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// });
 
 app.post('/product', async(req, res) =>{
     try {
