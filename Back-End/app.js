@@ -22,6 +22,15 @@ app.get('/product', async(req, res) => {
     }
 })
 
+app.get('/Calm', async(req, res) =>{
+    try {
+        const calm = await Calm.find({});
+        res.status(200).json(calm)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
 
 app.get('/product/:id', async(req, res) =>{
     try {
