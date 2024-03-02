@@ -3,6 +3,7 @@ import "./Modal.css";
 
 function Modal() {
   const [modal, setModal] = useState(false);
+  const [emojisArray, setEmojisArray] = useState(["😂", "🥰", "💪", "😌", "💔", "😔"]);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -21,20 +22,17 @@ function Modal() {
 
   return (
     <>
-      
-
       {modal && (
         <div className="modal">
           <div className="overlay">
             <div className="modal-content">
               <h2>Select the Emotion state</h2>
               <div className="set1" style={{ marginTop: "3rem" }}>
-                <button className="emoji">😂</button>
-                <button className="emoji">🥰</button>
-                <button className="emoji">💪</button>
-                <button className="emoji">😌</button>
-                <button className="emoji">💔</button>
-                <button className="emoji">😔</button>
+                {emojisArray.map((emoji, index) => (
+                  <button key={index} className="emoji">
+                    {emoji}
+                  </button>
+                ))}
               </div>
               <a href="#" style={{ marginLeft: "22rem" }}>
                 More
