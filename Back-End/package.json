@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Node.js RESTful API",
   "main": "app.js",
-  "scripts": {
+    "scripts": {
     "test": "npm start",
     "serve": "node app.js",
     "dev": "nodemon app.js"
