@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 const app = express()
 const Product = require('./models/productModel')
 const Calm = require('./models/Calm')
-
+const cors = require('cors')
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+app.use(cors())
 
 //routes
 app.get('/blog', (req, res) =>{
