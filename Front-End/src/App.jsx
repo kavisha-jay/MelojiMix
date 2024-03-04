@@ -16,7 +16,7 @@ import Modal from './components/modal/Modal';
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Signup from './components/LoginSignup/LoginSignup';
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
@@ -30,11 +30,8 @@ const App = () => {
 
   return (
     <div>
-      {
-        calm.map(calm =>{
-          return <div>{calm.Songname}</div>
-        })
-      }
+      <Signup/>
+      
     </div>
 
     // <div className="w-full relative overflow-hidden flex z-10 flex-grow h-screen ">
