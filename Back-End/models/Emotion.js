@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
-const CalmSchema = mongoose.Schema(
+const EmotionSchema = mongoose.Schema(
     {
         Songname:{
             type:String,
-            required:[true, "Please enter a product name"]
+            required:[true, "Please enter a song name"]
         },
-        Artist:{
+        Emotion:{
             type:String,
             required: true,
         },
@@ -16,6 +16,6 @@ const CalmSchema = mongoose.Schema(
     }
 )
 
-const Calm = mongoose.model('Calm', CalmSchema);
+const Emotion = mongoose.model('Calm', EmotionSchema);
 
-module.exports = Calm;
+module.exports = Emotion;

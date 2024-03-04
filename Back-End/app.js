@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const Product = require('./models/productModel')
-const Calm = require('./models/Calm')
+const Emotion = require('./models/Emotion')
 const cors = require('cors')
 
 app.use(express.json())
@@ -23,10 +23,10 @@ app.get('/product', async(req, res) => {
     }
 })
 
-app.get('/Calm', async(req, res) =>{
+app.get('/Emotion', async(req, res) =>{
     try {
-        const calm = await Calm.find({});
-        res.status(200).json(calm)
+        const emotion = await Emotion.find({});
+        res.status(200).json(emotion)
     } catch (error) {
         res.status(500).json({message: error.message})
     }
@@ -62,10 +62,10 @@ app.post('/product', async(req, res) =>{
     }
 })
 
-app.post('/Calm', async(req, res) =>{
+app.post('/Emotion', async(req, res) =>{
    try {
-      const calm = await Calm.create(req.body);
-      res.status(200).json(calm);
+      const emotion = await Emotion.create(req.body);
+      res.status(200).json(emotion);
    } catch (error) {
     console.log(error.message);
     res.status(500).json({message: error.message})
