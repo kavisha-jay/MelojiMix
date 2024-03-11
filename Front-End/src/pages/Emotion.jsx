@@ -14,16 +14,22 @@ const Emotion = () => {
   const [emotion, setEmotion] = useState([]);
   const [songNames, setSongNames] = useState([]);
 
+  const { emotion: selectedEmoji } = useParams();  // Updated line
+
   useEffect(() => {
-    axios.get('http://localhost:5000/Emotion')
+    axios.get(`http://localhost:5000/Emotion?emotion=${selectedEmoji}`)
       .then((emotionData) => {
         const emotionSongNames = emotionData.data.map((emotion) => emotion.Songname);
         setSongNames(emotionSongNames);
         setEmotion(emotionData.data);
         openModal();
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => {
+        console.error(err);
+        // Handle the error, e.g., redirect to an error page
+      });
+  }, [selectedEmoji]);
+  
 
   const openModal = () => {
     // Navigate to the emotion route

@@ -13,13 +13,27 @@ function Modal() {
     setModal(!modal);
   };
 
-  const handleEmojiSelection = (emoji) => {
-    setSelectedEmoji(emoji);
-    toggleModal();
-    // Navigate to the emotion page with the selected emoji
-    navigate(`/emotion/${emoji}`);  // Change this line
+  const handleEmojiSelection = async (emoji) => {
+    try {
+      // setSelectedEmoji(emoji); // Remove this line
+  
+      toggleModal();
+  
+      // Fetch data for the selected emoji
+      const response = await axios.get(`/Emotion?emotion=${emoji}`);
+  
+      // Handle the response, for example, update state with the fetched data
+      console.log(response.data);
+  
+      // Navigate to the emotion page with the selected emoji
+      navigate(`/emotion/${emoji}`);
+    } catch (error) {
+      // Handle the error
+      console.error(error);
+    }
   };
-
+  
+  
   useEffect(() => {
     // Open the modal when the component mounts
     toggleModal();
@@ -35,13 +49,18 @@ function Modal() {
   const fetchData = async () => {
     try {
       const response = await axios.get(`/Emotion?emotion=${selectedEmoji}`);
-      // Handle the response, for example, update state with the fetched data
-      console.log(response.data);
+      // Process the response data
+      const emotionData = response.data;
+      const emotionSongNames = emotionData.map((emotion) => emotion.Songname);
+      setSongNames(emotionSongNames);
+      setEmotion(emotionData);
+      openModal();
     } catch (error) {
-      // Handle the error
-      console.error(error);
+      console.error("Error fetching data:", error);
+      // Handle the error, e.g., show an error message
     }
   };
+  
 
   if (modal) {
     document.body.classList.add("active-modal");
@@ -74,7 +93,6 @@ function Modal() {
                 <button onClick={toggleModal} id="cancelBtn">
                   Cancel
                 </button>
-                <button onClick={toggleModal}>Done</button>
               </div>
             </div>
           </div>
