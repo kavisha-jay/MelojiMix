@@ -72,17 +72,24 @@ app.get('/product', async(req, res) => {
 // Your existing route for fetching songs based on emotion
 app.get('/Emotion', async (req, res) => {
     try {
-        const { emotion } = req.query;
-        const emotionSongs = await Emotion.aggregate([
-            { $match: { Emotion: '😂' } },
-            { $sample: { size: 10 } }
-        ]);
-        res.status(200).json(emotionSongs);
+      const { emotion } = req.query;
+      if (!emotion) {
+        return res.status(400).json({ message: 'Emotion parameter is missing.' });
+      }
+  
+      const emotionSongs = await Emotion.aggregate([
+        { $match: { Emotion: emotion } },
+        { $sample: { size: 10 } }
+      ]);
+  
+      res.status(200).json(emotionSongs);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
-});
-
+  });
+  
+  
+  
 // Rest of your code...
 
 // const PORT = process.env.PORT || 5000;
