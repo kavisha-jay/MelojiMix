@@ -7,6 +7,7 @@ import {useParams} from 'react-router-dom';
 import { Searchbar } from '../components';
 
 const Search = () => {
+  
     const { searchTerm } = useParams();
     const { activeSong, isPlaying } = useSelector((state) =>state.player);
     const { data, isFetching, error} = useGetSongsBySearchQuery(searchTerm);
