@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from 'react-router-dom';  // Change this import
+import { useNavigate } from 'react-router-dom';  
 import axios from 'axios';
 import "./Modal.css";
 
 function Modal() {
-  const navigate = useNavigate();  // Change this line
+  const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const [selectedEmoji, setSelectedEmoji] = useState('');
-  const [emojisArray, setEmojisArray] = useState(["😂", "🥰", "💪", "😌", "💔", "😔"]);
+  const [songNames, setSongNames] = useState([]); 
+  const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]); // Use const for static data
 
   const toggleModal = () => {
     setModal(!modal);
@@ -15,52 +16,30 @@ function Modal() {
 
   const handleEmojiSelection = async (emoji) => {
     try {
-      // setSelectedEmoji(emoji); // Remove this line
-  
+      setSelectedEmoji(emoji);
       toggleModal();
-  
-      // Fetch data for the selected emoji
-      const response = await axios.get(`/Emotion?emotion=${emoji}`);
-  
-      // Handle the response, for example, update state with the fetched data
-      console.log(response.data);
-  
-      // Navigate to the emotion page with the selected emoji
-      navigate(`/emotion/${emoji}`);
-    } catch (error) {
-      // Handle the error
-      console.error(error);
-    }
-  };
-  
-  
-  useEffect(() => {
-    // Open the modal when the component mounts
-    toggleModal();
-  }, []); // Empty dependency array to ensure it runs only once on mount
 
-  useEffect(() => {
-    // Fetch data when the selected emoji changes
-    if (selectedEmoji) {
-      fetchData();
-    }
-  }, [selectedEmoji]);
+      // Make API call with the selected emoji
+      const response = await axios.get('http://localhost:5000/Emotion', {
+        params: { emotion: emoji } // Pass emoji as query parameter
+      });
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`/Emotion?emotion=${selectedEmoji}`);
-      // Process the response data
-      const emotionData = response.data;
-      const emotionSongNames = emotionData.map((emotion) => emotion.Songname);
-      setSongNames(emotionSongNames);
-      setEmotion(emotionData);
-      openModal();
+      const newSongNames = response.data.map(emotionData => emotionData.Songname);
+      setSongNames(newSongNames);
+      
+
+      console.log("Fetched Songnames:", newSongNames);  // Handle the API response (emotionSongs)
+      
+      // You can use the emotionSongs data to display songs or perform other actions
+
     } catch (error) {
       console.error("Error fetching data:", error);
-      // Handle the error, e.g., show an error message
     }
   };
-  
+
+  useEffect(() => {
+    toggleModal(); // Open the modal on mount
+  }, []); // Empty dependency array ensures it runs only once
 
   if (modal) {
     document.body.classList.add("active-modal");
@@ -85,7 +64,6 @@ function Modal() {
               <a href="#" style={{ marginLeft: "22rem" }}>
                 More
               </a>
-
               <button className="close-modal" onClick={toggleModal}>
                 X
               </button>

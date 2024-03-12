@@ -9,47 +9,50 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const Emotion = () => {
-  const navigate = useNavigate();
-  const [emotion, setEmotion] = useState([]);
-  const [songNames, setSongNames] = useState([]);
+ 
+  const [selectedEmoji, setSelectedEmoji] = useState('');
+  const [songNames, setSongNames] = useState([]); 
+  const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]);
 
-  const { emotion: selectedEmoji } = useParams();  // Updated line
+  const handleEmojiSelection = async (emoji) => {
+    try {
+      setSelectedEmoji(emoji);
+      
 
-  useEffect(() => {
-    axios.get(`http://localhost:5000/Emotion?emotion=${selectedEmoji}`)
-      .then((emotionData) => {
-        const emotionSongNames = emotionData.data.map((emotion) => emotion.Songname);
-        setSongNames(emotionSongNames);
-        setEmotion(emotionData.data);
-        openModal();
-      })
-      .catch((err) => {
-        console.error(err);
-        // Handle the error, e.g., redirect to an error page
+      // Make API call with the selected emoji
+      const response = await axios.get('http://localhost:5000/Emotion', {
+        params: { emotion: emoji } // Pass emoji as query parameter
       });
-  }, [selectedEmoji]);
-  
 
-  const openModal = () => {
-    // Navigate to the emotion route
-    navigate('/emotion');
+      const newSongNames = response.data.map(emotionData => emotionData.Songname);
+      setSongNames(newSongNames);
+      
+
+      console.log("Fetched Songnames:", newSongNames);  // Handle the API response (emotionSongs)
+      
+      // You can use the emotionSongs data to display songs or perform other actions
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
-  // const songNames = ['Perfect', 'Think Out Loud', 'Lose Yourself', 'Let Her Go', 'Attention'];
+
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   return (
-  //   <div>
-  //   {emotion.map((emotionItem) => (
-  //     <div key={emotionItem.Songname}>{emotionItem.Songname}</div>
-  //   ))}
 
-    
-  //   {songNames.map((songName, index) => (
-  //     <div key={index}>{songName}</div>
-  //   ))}
-  // </div>
+
+  <>
+  <div>
+                {emojisArray.map((emoji, index) => (
+                  <button key={index} className="emoji" onClick={() => handleEmojiSelection(emoji)}>
+                    {emoji}
+                  </button>
+                ))}
+              </div>
     <div className='flex flex-row flex-wrap pt-5 sm:justify-start justify-center gap-8'>
       {songNames.map((searchTerm, index) => (
         <SearchResults
@@ -60,6 +63,7 @@ const Emotion = () => {
         />
       ))}
     </div>
+    </>
   );
 };
 
