@@ -60,7 +60,7 @@ app.get('/product', async(req, res) => {
 // app.get('/Emotion', async (req, res) => {
 //     try {
 //         const emotion = await Emotion.aggregate([
-//             { $match: { Emotion: '😂' } }, // Filter records with Emotion type 'calm'
+//             { $match: { Emotion: '💪' } }, // Filter records with Emotion type 'calm'
 //             { $sample: { size: 10 } } // Retrieve 10 random records
 //         ]);
 //         res.status(200).json(emotion);
@@ -73,6 +73,7 @@ app.get('/product', async(req, res) => {
 app.get('/Emotion', async (req, res) => {
     try {
       const { emotion } = req.query;
+      console.log("Received Emotion:", emotion);
       if (!emotion) {
         return res.status(400).json({ message: 'Emotion parameter is missing.' });
       }
