@@ -1,5 +1,5 @@
 const ArtistCard = () => {
-  <div>ArtistCard</div>;
+  <div>nope</div>;
 };
 
 export default ArtistCard;
