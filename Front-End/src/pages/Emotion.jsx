@@ -15,15 +15,24 @@ const Emotion = () => {
   const [selectedEmoji, setSelectedEmoji] = useState('');
   const [songNames, setSongNames] = useState([]); 
   const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]);
+  const emojiToWordMap = {
+    "💪": "Energetic",
+    "😌": "Calm",
+    "❤️": "Love",
+    "😊": "Happy",
+    "😢": "Sad",
+    "😍": "Excited"
+  };
 
   const handleEmojiSelection = async (emoji) => {
     try {
+      const word = emojiToWordMap[emoji];
       setSelectedEmoji(emoji);
       
 
       // Make API call with the selected emoji
       const response = await axios.get('http://localhost:5000/Emotion', {
-        params: { emotion: emoji } // Pass emoji as query parameter
+        params: { emotion: word } // Pass emoji as query parameter
       });
 
       const newSongNames = response.data.map(emotionData => emotionData.Songname);
