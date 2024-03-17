@@ -21,7 +21,7 @@ const Emotion = () => {
     "❤️": "Love",
     "😊": "Happy",
     "😢": "Sad",
-    "😍": "Excited"
+    "😍": "Angry"
   };
 
   const handleEmojiSelection = async (emoji) => {

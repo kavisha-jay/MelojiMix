@@ -1,18 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import './index.css';
 import App from './App';
+import Signup from './components/LoginSignup/LoginSignup';
 import { store } from './redux/store';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <App />
+        <Routes>
+          <Route path="/*" element={<App />} />
+          <Route path="/register" element={<Signup backgroundColor="#000" />} />
+          
+        </Routes>
       </Router>
     </Provider>
   </React.StrictMode>,
+  document.getElementById('root')
 );
