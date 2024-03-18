@@ -1,5 +1,5 @@
 const ArtistCard = () => {
-  <div>ArtistCard</div>;
+  <div>ArtstCard</div>;
 };
 
 export default ArtistCard;
