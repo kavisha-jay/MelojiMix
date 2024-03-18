@@ -8,12 +8,14 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Searchresults from '../components/Searchresults';
 
 
 const Emotion = () => {
  
   const [selectedEmoji, setSelectedEmoji] = useState('');
   const [songNames, setSongNames] = useState([]); 
+  const [songN, setSongN] = useState([]);
   const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]);
   const emojiToWordMap = {
     "💪": "Energetic",
@@ -39,15 +41,10 @@ const Emotion = () => {
       setSongNames(newSongNames);
       
 
-      console.log("Fetched Songnames:", newSongNames);  // Handle the API response (emotionSongs)
-      
-      // You can use the emotionSongs data to display songs or perform other actions
-
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
 
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
@@ -64,13 +61,21 @@ const Emotion = () => {
               </div>
     <div className='flex flex-row flex-wrap pt-5 sm:justify-start justify-center gap-8'>
       {songNames.map((searchTerm, index) => (
-        <SearchResults
+        <Searchresults
           key={index}
           searchTerm={searchTerm}
           activeSong={activeSong}
           isPlaying={isPlaying}
         />
       ))}
+      {/* {songNames.map((searchTerm, index) => (
+        <SearchResults
+          key={index}
+          searchTerm={searchTerm}
+          activeSong={activeSong}
+          isPlaying={isPlaying}
+        />
+      ))} */}
     </div>
     </>
   );
