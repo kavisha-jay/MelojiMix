@@ -49,6 +49,7 @@ const LoginSignup = () => {
 
     return (
     <div className='Fullcontain'>
+        <div className='background'>
     <div className='container'>
         <div className="submit-container">
                 <div className={action==="Login"?"submit gray":"submit"} onClick={()=>{setAction("Sign up")}}>Sign Up</div>
@@ -82,10 +83,10 @@ const LoginSignup = () => {
             </form>
 
             
-            
+            </div>
         </div>
         </div>
         
   );
 };
-export default LoginSignup;
+export default LoginSignup;   
