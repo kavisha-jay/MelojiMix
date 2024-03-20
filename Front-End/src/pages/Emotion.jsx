@@ -4,7 +4,6 @@ import { useGetSongsBySearchQuery } from '../redux/services/shazamCore';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import SongCard from '../components/SongCard';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -31,10 +30,8 @@ const Emotion = () => {
       const word = emojiToWordMap[emoji];
       setSelectedEmoji(emoji);
       
-
-      // Make API call with the selected emoji
       const response = await axios.get('http://localhost:5000/Emotion', {
-        params: { emotion: word } // Pass emoji as query parameter
+        params: { emotion: word }
       });
 
       const newSongNames = response.data.map(emotionData => emotionData.Songname);

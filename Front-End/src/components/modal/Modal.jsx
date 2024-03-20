@@ -27,9 +27,8 @@ function Modal() {
       setSongNames(newSongNames);
       
 
-      console.log("Fetched Songnames:", newSongNames);  // Handle the API response (emotionSongs)
-      
-      // You can use the emotionSongs data to display songs or perform other actions
+      console.log("Fetched Songnames:", newSongNames);  
+
 
     } catch (error) {
       console.error("Error fetching data:", error);

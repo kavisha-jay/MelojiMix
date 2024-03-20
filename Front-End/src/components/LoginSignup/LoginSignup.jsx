@@ -12,13 +12,12 @@ const LoginSignup = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState(""); // State to store error message
+    const [errorMessage, setErrorMessage] = useState(""); 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (action === "Sign up") {
-            // Handle signup logic
             axios.post('http://localhost:5000/register', { name, email, password })
                 .then(result =>{ 
                     console.log(result);
@@ -28,7 +27,6 @@ const LoginSignup = () => {
                 })
                 .catch(err => console.log(err));
         } else {
-            // Handle login logic
             axios.post('http://localhost:5000/login', { email, password })
                 .then(result => {
                     console.log(result);
@@ -40,8 +38,6 @@ const LoginSignup = () => {
                 })
                 .catch(err => {
                     console.log(err);
-                    // Set error message for incorrect email or password
-                    
                 });
         }
     };
@@ -76,7 +72,7 @@ const LoginSignup = () => {
                                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
                         </div>
-                        {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+                        {errorMessage && <div className="error-message">{errorMessage}</div>} 
                         {action === "Sign up" ? null : <div className="forgot-password">Lost Password? <span>Click Here!</span></div>}
                         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-14 ml-48">
                             {action === "Sign up" ? "Sign Up" : "Login"}
