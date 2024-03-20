@@ -68,14 +68,7 @@ const Emotion = () => {
           isPlaying={isPlaying}
         />
       ))}
-      {/* {songNames.map((searchTerm, index) => (
-        <SearchResults
-          key={index}
-          searchTerm={searchTerm}
-          activeSong={activeSong}
-          isPlaying={isPlaying}
-        />
-      ))} */}
+      
     </div>
     </>
   );
