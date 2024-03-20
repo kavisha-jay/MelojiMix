@@ -1,9 +1,17 @@
+.Fullcontain{
+    background: url(../../assets/back.jpg) no-repeat center;
+    height:100%;
+    width:100%;
+}
+
+
+
 .container{
     display: flex;
     flex-direction: column;
     margin: auto;
-    /* margin-top: 120px; */
-    width: 500px;
+    margin-top: 5%;
+    width: 30rem;
     background: #949696;
     border-radius: 6px;
     padding-bottom: 30px;
