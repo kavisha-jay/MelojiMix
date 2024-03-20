@@ -1,5 +1,5 @@
 const DetailsHeader = () => (
-  <div>DetailsHeader</div>
+  <div>DNothing</div>
 );
 
 export default DetailsHeader;

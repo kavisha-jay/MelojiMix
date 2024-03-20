@@ -1,13 +1,40 @@
+.Fullcontain{
+    background: url(../../assets/back.jpg) no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: auto;
+    position: relative;    
+    backdrop-filter: blur(10px);
+    display: flex;
+    height: 100vh;
+    
+}
+
+.back1{
+    backdrop-filter: blur(5px);
+    transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(34, 34, 34, 0.6);
+    background-size: cover;
+    display: flex;
+    flex:1 1 0%;
+    flex-direction: column;
+    /* height: calc(100vh - 72px); */
+    overflow-y: scroll;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer 10+ */
+    flex-direction: column-reverse;
+}
 .container{
+    
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: auto;
-    /* margin-top: 120px; */
-    width: 500px;
+    margin-top: 5%;
+    width: 30rem;
     background: #949696;
     border-radius: 6px;
     padding-bottom: 30px;
-    
 }
 
 .header{
@@ -98,4 +125,10 @@
 .gray{
     background: #eaeaea;
     color: #676767;
+}
+
+.error-message{
+    color:red;
+    padding-left: 4rem;
+    padding-top: 1rem;
 }

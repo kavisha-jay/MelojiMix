@@ -8,7 +8,7 @@ function Modal() {
   const [modal, setModal] = useState(false);
   const [selectedEmoji, setSelectedEmoji] = useState('');
   const [songNames, setSongNames] = useState([]); 
-  const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]); // Use const for static data
+  const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]); 
 
   const toggleModal = () => {
     setModal(!modal);
@@ -19,7 +19,6 @@ function Modal() {
       setSelectedEmoji(emoji);
       toggleModal();
 
-      // Make API call with the selected emoji
       const response = await axios.get('http://localhost:5000/Emotion', {
         params: { emotion: emoji } // Pass emoji as query parameter
       });
@@ -28,9 +27,8 @@ function Modal() {
       setSongNames(newSongNames);
       
 
-      console.log("Fetched Songnames:", newSongNames);  // Handle the API response (emotionSongs)
-      
-      // You can use the emotionSongs data to display songs or perform other actions
+      console.log("Fetched Songnames:", newSongNames);  
+
 
     } catch (error) {
       console.error("Error fetching data:", error);
