@@ -17,7 +17,12 @@
     background-size: cover;
     display: flex;
     flex:1 1 0%;
-    flex-direction: column;;
+    flex-direction: column;
+    /* height: calc(100vh - 72px); */
+    overflow-y: scroll;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer 10+ */
+    flex-direction: column-reverse;
 }
 .container{
     
@@ -30,8 +35,6 @@
     background: #949696;
     border-radius: 6px;
     padding-bottom: 30px;
-    
-    
 }
 
 .header{
