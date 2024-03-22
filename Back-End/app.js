@@ -33,18 +33,7 @@ app.post("/login",(req, res) => {
     })
 })
 
-app.get('/blog', (req, res) =>{
-    res.send('Hello blog my name is Kaveesha')
-})
 
-app.get('/product', async(req, res) => {
-    try {
-        const products = await Product.find({});
-        res.status(200).json(products)
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-})
 
 // app.get('/Emotion', async(req, res) =>{
 //     try {
@@ -75,7 +64,7 @@ app.get('/Emotion', async (req, res) => {
       const { emotion } = req.query;
       console.log("Received Emotion:", emotion);
       if (!emotion) {
-        return res.status(400).json({ message: 'Emotion parameter is missing.' });
+        return res.status(400).json({ message: 'Successfully pass the 10 song names.' });
       }
   
       const emotionSongs = await Emotion.aggregate([
