@@ -32,7 +32,6 @@ const Emotion = () => {
       setSelectedEmoji(emoji);
       
 
-      // Make API call with the selected emoji
       const response = await axios.get('http://localhost:5000/Emotion', {
         params: { emotion: word } // Pass emoji as query parameter
       });

@@ -29,10 +29,7 @@ const App = () => {
   }, [])
 
   return (
-    // <div>
-    //   <Signup/>
-      
-    // </div>
+
 
     <div className="w-full relative overflow-hidden flex z-10 flex-grow h-screen ">
       <Sidebar />
