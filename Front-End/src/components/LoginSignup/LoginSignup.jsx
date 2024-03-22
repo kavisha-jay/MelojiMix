@@ -35,7 +35,6 @@ const LoginSignup = () => {
                 })
                 .catch(err => console.log(err));
         } else {
-            // Handle login logic
             axios.post('http://localhost:5000/login', { email, password })
                 .then(result => {
                     console.log(result)
