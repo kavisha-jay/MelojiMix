@@ -23,7 +23,3 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-
-      # Ensure package-lock.json exists in the root directory
-      - name: Copy package-lock.json
-        run: cp ./Front-End/package-lock.json ./package-lock.json
