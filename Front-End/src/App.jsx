@@ -32,7 +32,6 @@ const App = () => {
               <Route path="/" element={<Discover />} />
               <Route path="/emotion" element={<Emotion />} />
               <Route path="/search/:searchTerm" element={<Search />} />
-              <Route path="/register" element={<Login/>}/>
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">

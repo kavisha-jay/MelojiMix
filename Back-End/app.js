@@ -72,7 +72,7 @@ app.get('/Emotion', async (req, res) => {
   
       const emotionSongs = await Emotion.aggregate([
         { $match: { Emotion: emotion } },
-        { $sample: { size: 4 } }
+        { $sample: { size: 10 } }
       ]);
   
       res.status(200).json(emotionSongs);
