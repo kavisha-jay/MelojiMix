@@ -58,7 +58,7 @@ app.post("/login",(req, res) => {
 //     }
 // });
 
-// Your existing route for fetching songs based on emotion
+
 app.get('/Emotion', async (req, res) => {
     try {
       const { emotion } = req.query;
@@ -69,7 +69,7 @@ app.get('/Emotion', async (req, res) => {
   
       const emotionSongs = await Emotion.aggregate([
         { $match: { Emotion: emotion } },
-        { $sample: { size: 3 } }
+        { $sample: { size: 10 } }
       ]);
   
       res.status(200).json(emotionSongs);
@@ -87,34 +87,7 @@ app.get('/Emotion', async (req, res) => {
 //     console.log(`Server is running on port ${PORT}`);
 // });
 
-app.get('/product/:id', async(req, res) =>{
-    try {
-        const {id} = req.params;
-        const product = await Product.findById(id);
-        res.status(200).json(product)
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-})
-app.get('/product/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const product = await Product.findById(id, 'name'); // Only select the 'name' field
-        res.status(200).json({ name: product.name }); // Send only the 'name' attribute in the response
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
 
-app.post('/product', async(req, res) =>{
-    try {
-        const product = await Product.create(req.body)
-        res.status(200).json(product);
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message})
-    }
-})
 
 app.post('/Emotion', async(req, res) =>{
    try {
@@ -125,37 +98,6 @@ app.post('/Emotion', async(req, res) =>{
     res.status(500).json({message: error.message})
    }
 })
-//update a record in database
-// app.put('/product/:id', async(req, res) =>{
-//     try {
-//         const {id} = req.params;
-//         const product = await Product.findByIdAndUpdate(id, req.body);
-//         //we cannot find any product in database
-//         if(!product){
-//             return res.status(404).json({message: `cannot find any product with ID ${id}`})
-//         }
-//         const updatedProduct = await Product.findById(id);
-//         res.status(200).json(updatedProduct);
-//     } catch (error) {
-//         res.status(500).json({message: error.message})
-//     }
-// })
-
-//Delete a product
-app.delete('/product/:id', async(req, res) =>{
-    try {
-        const {id} = req.params;
-        const product = await Product.findByIdAndDelete(id);
-        if(!product){
-            return res.status(404).json({message: `cannot find any product with ID ${id}`})
-        }
-        res.status(200).json(product);
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-})
-
-
 
 
 mongoose.set('strictQuery', false);

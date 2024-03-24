@@ -13,6 +13,7 @@ import Searchresults from '../components/Searchresults';
 const Emotion = () => {
  
   const [selectedEmoji, setSelectedEmoji] = useState('');
+  const [selectedEmotion, setSelectedEmotion] = useState('');
   const [songNames, setSongNames] = useState([]); 
   const [songN, setSongN] = useState([]);
   const [emojisArray] = useState(["💪", "😌", "❤️", "😊", "😢", "😍"]);
@@ -51,14 +52,18 @@ const Emotion = () => {
   <>
   <div>
                 {emojisArray.map((emoji, index) => (
-                  <button key={index} className="emoji" onClick={() => handleEmojiSelection(emoji)}>
+                  <button key={index} style={{fontSize:"2rem"}}
+                   className="emoji" onClick={() => {handleEmojiSelection(emoji)
+                  }}>
                     {emoji}
+                    
                   </button>
                 ))}
+               <p style={{color:"white", fontSize:"3rem"}}>{emojiToWordMap[selectedEmoji]}</p>
               </div>
     <div className='flex flex-row flex-wrap pt-5 sm:justify-start justify-center gap-8'>
       {songNames.map((searchTerm, index) => (
-        <Searchresults
+        <SearchResults
           key={index}
           searchTerm={searchTerm}
           activeSong={activeSong}
@@ -77,7 +82,7 @@ const SearchResults = ({ searchTerm, activeSong, isPlaying }) => {
   const songs = data?.tracks?.hits?.map((song) => song.track);
 
   if (isFetching) return <Loader title={`Loading search for ${searchTerm}...`} />;
-  if (error) return <Error />;
+  if (error) return '';
 
   const firstSong = songs?.[0];
 

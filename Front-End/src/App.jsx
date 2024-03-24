@@ -8,6 +8,7 @@ import Search from './pages/Search';
 import Emotion from './pages/Emotion';
 import Discover from './pages/Discover';
 import Modal from './components/modal/Modal';
+import Login from './components/LoginSignup/LoginSignup';
 // import './App.css';
 
 const App = () => {
@@ -19,7 +20,14 @@ const App = () => {
       <div className="background">
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse bg-[rgba(34,34,34,0.6)]  backdrop-blur-3xl">
           <div className="flex-1 h-fit pb-40 ">
+            <div className='flex flex-row space-x-44 '>
             <Searchbar />
+            <div className="bg-blue-500 hover:bg-blue-700 h-9 mt-5 rounded">
+            <button className=" text-white font-bold px-4" >
+                Signup
+              </button>
+              </div>
+            </div>
             <Routes>
               <Route path="/" element={<Discover />} />
               <Route path="/emotion" element={<Emotion />} />
