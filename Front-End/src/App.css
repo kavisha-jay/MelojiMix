@@ -33,3 +33,8 @@
     background-size: cover;
   }
   
+  @media (max-width: 768px) {
+    .route {
+      margin-left: -7.4rem; /* Moves the route to the right on smaller screens  /* Adjust this value as needed */
+    }
+  }
