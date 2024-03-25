@@ -61,6 +61,7 @@ app.post("/login",(req, res) => {
 
 app.get('/Emotion', async (req, res) => {
     try {
+
       const { emotion } = req.query;
       console.log("Received Emotion:", emotion);
       if (!emotion) {
@@ -76,6 +77,7 @@ app.get('/Emotion', async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
+
   });
   
   
@@ -95,7 +97,7 @@ app.post('/Emotion', async(req, res) =>{
       res.status(200).json(emotion);
    } catch (error) {
     console.log(error.message);
-    res.status(500).json({message: error.message})
+    res.status(200).json({message: error.message})
    }
 })
 
