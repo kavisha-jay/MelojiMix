@@ -33,9 +33,6 @@ app.post("/login",(req, res) => {
     })
 })
 
-app.get('/blog', (req, res) =>{
-    res.send('Hello blog my name is Kaveesha')
-})
 
 
 // app.get('/Emotion', async(req, res) =>{
@@ -64,21 +61,23 @@ app.get('/blog', (req, res) =>{
 
 app.get('/Emotion', async (req, res) => {
     try {
-        const { emotion } = req.query;
-        console.log("Received Emotion:", emotion);
-        if (!emotion) {
-          return res.status(200).json({ message: 'Emotion is received successfully' });
-        }
-    
-        const emotionSongs = await Emotion.aggregate([
-          { $match: { Emotion: emotion } },
-          { $sample: { size: 10 } }
-        ]);
-    
-        res.status(200).json(emotionSongs);
-      } catch (error) {
-        res.status(500).json({ message: error.message });
-      }     
+
+      const { emotion } = req.query;
+      console.log("Received Emotion:", emotion);
+      if (!emotion) {
+        return res.status(400).json({ message: 'Successfully pass the 10 song names.' });
+      }
+  
+      const emotionSongs = await Emotion.aggregate([
+        { $match: { Emotion: emotion } },
+        { $sample: { size: 10 } }
+      ]);
+  
+      res.status(200).json(emotionSongs);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+
   });
   
   
