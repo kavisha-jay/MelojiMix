@@ -100,6 +100,10 @@ app.post('/Emotion', async(req, res) =>{
     res.status(200).json({message: error.message})
    }
 })
+app.use('/', (req, res) =>{
+   res.send("Server is Running");
+ })
+ 
 
 
 mongoose.set('strictQuery', false);
