@@ -111,7 +111,7 @@ mongoose.connect('mongodb+srv://admin:admin@melo.yh9pz2n.mongodb.net/Node-API?re
 .then(() =>{
     console.log('connected to MongoDB');
     app.listen(5000, () => {
-        console.log(`Node API app is running on port 5000`)
+        console.log(`Node API app is running on  port 5000`)
     });
    
 }).catch(() => {
